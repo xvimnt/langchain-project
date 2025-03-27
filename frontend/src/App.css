@@ -52,6 +52,54 @@
   font-size: 16px;
 }
 
+.message-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.step-name {
+  font-weight: bold;
+  color: #19c37d;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.step-result {
+  font-family: monospace;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.final-answer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.final-answer-label {
+  font-weight: bold;
+  color: #19c37d;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.final-answer-content {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 .input-form {
   display: flex;
   gap: 10px;
