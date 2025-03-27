@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 # copy the api to the folder
 COPY ./api ./api
 
-ENV PYTHONPATH /code/api
+ENV PYTHONPATH /code/api 

@@ -137,6 +137,7 @@ class QueueCallbackHandler(AsyncCallbackHandler):
         else:
             self.queue.put_nowait("<<STEP_END>>")
 
+# Execute tool
 async def execute_tool(tool_call: AIMessage) -> ToolMessage:
     tool_name = tool_call.tool_calls[0]["name"]
     tool_args = tool_call.tool_calls[0]["args"]
