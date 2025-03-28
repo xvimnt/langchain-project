@@ -39,6 +39,11 @@ function App() {
         throw new Error("Error");
       }
 
+      /*
+        JSON response example:
+        {name:serpapi,content:{"query":"current weather in Guatemala"}}{name:final_answer,content:{"answer":"The current weather in Guatemala City is 63°F (approximately 17°C) with clouds and sun. There is a chance of thunderstorms later. For more details, you can check the full forecast on [AccuWeather](https://www.accuweather.com/en/gt/guatemala-city/187765/weather-forecast/187765).","tools_used":["serpapi"]}
+      */
+
       const data = res.body;
       if (!data) {
         setLoading(false);
@@ -77,7 +82,9 @@ function App() {
                   try {
                     const result = JSON.parse(jsonMatch[1]);
                     if (stepName === "final_answer") {
+                      console.log("Found final answer:", result);
                       finalAnswer = result.answer || JSON.stringify(result);
+                      console.log("Processed final answer:", finalAnswer);
                     } else {
                       currentSteps.push({
                         name: stepName,
@@ -98,7 +105,7 @@ function App() {
             const lastMessage = newMessages[newMessages.length - 1];
             const currentContent = {
               steps: [...currentSteps],
-              finalAnswer: finalAnswer
+              finalAnswer: finalAnswer || ""  // Ensure finalAnswer is always a string
             };
             if (lastMessage.role === 'assistant') {
               lastMessage.content = currentContent;

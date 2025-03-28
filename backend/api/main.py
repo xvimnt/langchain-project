@@ -40,6 +40,7 @@ async def token_generator(content: str, streamer: QueueCallbackHandler):
             print(f"Error streaming token: {e}")
             continue
     await task
+    yield "</step>"
 
 # invoke function
 @app.post("/invoke")
